@@ -19,8 +19,7 @@ An introductory screen that welcomes the user to the app and provides options to
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/welcome.jpeg" height="500">
 
 # 🔐 Login & Signup Screens
-
-Allows existing users to sign in to their account using their credentials (email and password),
+Allows existing users to sign in to their account using their credentials (email and password),<br>
 Enables new users to create a Bookia account by entering their personal information.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/login.jpeg" height="500">
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/signup.jpeg" height="500">
