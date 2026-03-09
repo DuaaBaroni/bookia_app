@@ -22,9 +22,21 @@ An introductory screen that welcomes the user to the app and provides options to
 Allows existing users to sign in to their account using their credentials (email and password),<br>
 Enables new users to create a Bookia account by entering their personal information.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/login.jpeg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/loading.jpg" height="500">
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/signup.jpeg" height="500">
  </div>
-<br>
+
+# 🔐 Forget Password & Verfication
+ The Forget Password screen allows users to recover access to their account if they forget their password.
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/forget-password.jpg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/otp.jpg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/new_password.jpg" height="500">
+ </div>
+
+# 🏠 Home Screen
+The Home Page is the main screen of the application where users can explore books and access different sections of the app.
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/home.jpg" height="500">
+ </div>
 
 
 
