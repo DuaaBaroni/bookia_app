@@ -13,4 +13,6 @@ abstract class AppImages {
   static const String profileSvg = 'assets/icons/profile.svg';
   static const String searchSvg = 'assets/icons/search-normal.svg';
   static const String loadingJson = 'assets/images/loading.json';
+  static const String back = 'assets/icons/back.svg';
+  static const String success = 'assets/images/successmark.svg';
 }

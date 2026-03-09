@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -37,10 +39,12 @@ class CustomTextFormField extends StatelessWidget {
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },
-       decoration: InputDecoration(
+      decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyles.caption1.copyWith
-        (color: AppColors.greyColor, fontSize: 10),
+        hintStyle: TextStyles.caption1.copyWith(
+          color: AppColors.greyColor,
+          fontSize: 10,
+        ),
         prefixIcon: prefixIcon,
         fillColor: AppColors.accentColor.withOpacity(0.4),
         filled: true,

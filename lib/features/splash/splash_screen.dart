@@ -1,8 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
 import 'package:bookia_app/core/constants/app_images.dart';
 import 'package:bookia_app/core/functions/navigations.dart';
+import 'package:bookia_app/core/services/local/shared_preferences.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
+import 'package:bookia_app/core/widgets/bottom_navigation_bar.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
 import 'package:bookia_app/features/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    String? token = SharedPref.getToken();
+    log(token.toString());
     Future.delayed(const Duration(seconds: 3), () {
-      pushReplacement(context, const WelcomeScreen());
+      if (token != null && token.isNotEmpty) {
+        pushReplacement(context, const MainAppScreen());
+      } else {
+        pushReplacement(context, const WelcomeScreen());
+      }
     });
   }
 

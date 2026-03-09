@@ -4,7 +4,7 @@ class MyBodyView extends StatelessWidget {
   const MyBodyView({
     super.key,
     required this.child,
-    this.padding = const EdgeInsets.all(22), required Padding bottomNavigationBar,
+    this.padding = const EdgeInsets.all(22),
   });
 
   final Widget child;

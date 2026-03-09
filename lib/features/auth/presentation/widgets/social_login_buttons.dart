@@ -1,5 +1,3 @@
-
-
 import 'package:bookia_app/core/constants/app_images.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
