@@ -34,7 +34,7 @@ Enables new users to create a Bookia account by entering their personal informat
  </div>
 
 # 🏠 Home Screen
-The Home Page is the main screen of the application where users can explore books and access different sections of the app.
+The Home Page is the main screen of the application where users can explore books and access different sections.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/home.jpg" height="500">
  </div>
 
