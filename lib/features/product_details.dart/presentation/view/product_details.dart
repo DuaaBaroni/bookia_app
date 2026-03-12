@@ -16,7 +16,7 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 40, left: 20, right:20, bottom: 20),
+        padding: const EdgeInsets.only(top: 60, left: 20, right:20, bottom: 20),
         child: SingleChildScrollView(
           child: SingleChildScrollView(
             child: Column(
@@ -48,13 +48,14 @@ class ProductDetails extends StatelessWidget {
                   )),
                 Gap(6),
                 Text(
-                  "Broché",
+                  product.category??"",
                   style: TextStyles.caption1.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
                 Gap(16),
                 Text(
+                  textAlign: TextAlign.justify,
                   product.description??"",
                   style: TextStyles.caption2.copyWith(
                     color: AppColors.black,
@@ -64,7 +65,9 @@ class ProductDetails extends StatelessWidget {
                 Gap(20),
                 Row(
                   children: [
-                    Expanded(child: Text("\$${product.price}", style: TextStyles.title)),
+                    Expanded(child: Text("\$${product.price}", style: TextStyles.title.copyWith(
+                      fontSize: 20
+                    ))),
                     Expanded(
                       child: MainButton(
                         minWidth: 250,
