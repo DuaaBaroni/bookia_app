@@ -64,10 +64,10 @@ class ProductDetails extends StatelessWidget {
                 Gap(20),
                 Row(
                   children: [
-
                     Expanded(child: Text("\$${product.price}", style: TextStyles.title)),
                     Expanded(
                       child: MainButton(
+                        minWidth: 250,
                         bgColor: AppColors.black,
                         textColor: AppColors.borderColor,
                         onPressed: () {},
