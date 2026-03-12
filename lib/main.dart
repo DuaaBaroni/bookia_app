@@ -1,5 +1,6 @@
 import 'package:bookia_app/core/services/dio/dio_provider.dart';
 import 'package:bookia_app/core/services/local/shared_preferences.dart';
+import 'package:bookia_app/features/product_details.dart/presentation/view/product_details.dart';
 import 'package:bookia_app/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 

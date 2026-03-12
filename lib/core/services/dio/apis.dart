@@ -7,4 +7,5 @@ abstract class Apis {
 
   // home
   static const slider = '/sliders';
+  static const bestSellerProducts = '/products-bestseller';
 }

@@ -28,29 +28,28 @@ class AuthRepo {
     }
   }
 
+  static Future<AuthResponse?> login(LoginParams params) async {
+    try {
+      log(params.toJson().toString());
 
-static Future<AuthResponse?> login(LoginParams params) async {
-  try {
-    log(params.toJson().toString());
+      var response = await DioProvider.post(
+        endpoint: Apis.login,
+        data: params.toJson(),
+      );
 
-    var response = await DioProvider.post(
-      endpoint: Apis.login,
-      data: params.toJson(),
-    );
+      if (response.statusCode == 200) {
+        var data = AuthResponse.fromJson(response.data);
 
-    if (response.statusCode == 200) {
-      var data = AuthResponse.fromJson(response.data);
+        SharedPref.setToken(data.data?.token ?? '');
+        SharedPref.setUserInfo(data.data?.user);
 
-      SharedPref.setToken(data.data?.token ?? '');
-      SharedPref.setUserInfo(data.data?.user);
-
-      return data;
-    } else {
+        return data;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      log(e.toString());
       return null;
     }
-  } catch (e) {
-    log(e.toString());
-    return null;
   }
-}
 }

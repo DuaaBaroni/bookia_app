@@ -4,6 +4,7 @@ import 'package:bookia_app/core/functions/navigations.dart';
 import 'package:bookia_app/core/functions/validations.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
+import 'package:bookia_app/core/widgets/bottom_navigation_bar.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
 import 'package:bookia_app/core/widgets/custom_text_form_field.dart';
 import 'package:bookia_app/core/widgets/dialogs.dart';
@@ -64,7 +65,7 @@ class RegisterScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthSuccessState) {
           log("success");
-          //  pushToBase(context, MainAppScreen());
+           pushToBase(context, MainAppScreen());
         } else if (state is AuthErrorState) {
           pop(context);
           log("error");
@@ -77,7 +78,6 @@ class RegisterScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = context.read<AuthCubit>();
         return MyBodyView(
-          // bottomNavigationBar: Padding(padding: EdgeInsets.all(10)),
           child: Form(
             key: cubit.formKey,
             child: SingleChildScrollView(

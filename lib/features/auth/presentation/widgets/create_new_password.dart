@@ -75,7 +75,7 @@ class _NewPasswordState extends State<NewPassword> {
                 text: "Reset Password",
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    pushTo(context,PasswordChanged() );
+                    pushTo(context, PasswordChanged());
                   }
                 },
               ),
@@ -86,5 +86,3 @@ class _NewPasswordState extends State<NewPassword> {
     );
   }
 }
-
-

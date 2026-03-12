@@ -15,4 +15,5 @@ abstract class AppImages {
   static const String loadingJson = 'assets/images/loading.json';
   static const String back = 'assets/icons/back.svg';
   static const String success = 'assets/images/successmark.svg';
+  static const String book = 'assets/images/book.png';
 }

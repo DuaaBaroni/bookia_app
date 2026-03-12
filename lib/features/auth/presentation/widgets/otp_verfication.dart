@@ -1,4 +1,3 @@
-
 // ignore_for_file: deprecated_member_use
 
 import 'package:bookia_app/core/constants/app_images.dart';
@@ -87,9 +86,9 @@ class _OTPVerficationState extends State<OTPVerfication> {
                     color: AppColors.darkGreyColor,
                   ),
                 ),
-            
+
                 const Gap(40),
-            
+
                 Center(
                   child: Pinput(
                     length: 5,
@@ -113,9 +112,9 @@ class _OTPVerficationState extends State<OTPVerfication> {
                     },
                   ),
                 ),
-            
+
                 const Gap(60),
-            
+
                 MainButton(
                   text: "Verify",
                   onPressed: () {
@@ -124,16 +123,13 @@ class _OTPVerficationState extends State<OTPVerfication> {
                     }
                   },
                 ),
-            
+
                 const Spacer(),
-            
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Didn’t received code?',
-                      style: TextStyles.caption1,
-                    ),
+                    Text('Didn’t received code?', style: TextStyles.caption1),
                     const Gap(5),
                     GestureDetector(
                       onTap: () {
@@ -156,4 +152,3 @@ class _OTPVerficationState extends State<OTPVerfication> {
     );
   }
 }
-
