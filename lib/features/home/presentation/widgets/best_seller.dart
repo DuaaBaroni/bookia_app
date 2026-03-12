@@ -37,19 +37,7 @@ class BestSellerBooks extends StatelessWidget {
             ],
           );
         } else {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // TextShimmer(width: 100),
-              // Gap(20),
-              // GridShimmer(
-              //   crossAxisCount: 2,
-              //   mainAxisSpacing: 11,
-              //   crossAxisSpacing: 11,
-              //   childAspectRatio: .6,
-              // ),
-            ],
-          );
+          return Column();
         }
       },
     );
