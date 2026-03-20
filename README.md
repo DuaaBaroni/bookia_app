@@ -41,6 +41,8 @@ The Home Page is the main screen of the application where users can explore book
  # 📖 Product Details
 The Product Details page displays comprehensive information about a selected book.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/product_details.jpg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/details-2.jpg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/details-3.jpg" height="500">
  </div>
 
 
