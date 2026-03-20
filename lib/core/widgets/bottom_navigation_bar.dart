@@ -2,6 +2,7 @@ import 'package:bookia_app/core/constants/app_images.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
 import 'package:bookia_app/features/home/presentation/view/home_view.dart';
+import 'package:bookia_app/features/wishlist/presentation/view/wishlist_view.dart';
 import 'package:flutter/material.dart';
 
 class MainAppScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
     HomeScreen(),
-    Center(child: Text('Wishlist')),
+    WishlistScreen(),
     Center(child: Text('Cart')),
     Center(child: Text('Profile')),
   ];
@@ -44,7 +45,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
             path: AppImages.homeSvg,
             color: AppColors.primaryColor,
           ),
-          label: 'Home',
+         label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: CustomSvgPicture(path: AppImages.bookmarkSvg),
@@ -52,7 +53,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
             path: AppImages.bookmarkSvg,
             color: AppColors.primaryColor,
           ),
-          label: 'Wishlist',
+         label: 'Wishlist',
         ),
         BottomNavigationBarItem(
           icon: CustomSvgPicture(path: AppImages.cartSvg),
@@ -60,7 +61,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
             path: AppImages.cartSvg,
             color: AppColors.primaryColor,
           ),
-          label: 'Cart',
+        label: 'Cart',
         ),
         BottomNavigationBarItem(
           icon: CustomSvgPicture(path: AppImages.profileSvg),
@@ -68,7 +69,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
             path: AppImages.profileSvg,
             color: AppColors.primaryColor,
           ),
-          label: 'Profile',
+         label: 'Profile',
         ),
       ],
     );

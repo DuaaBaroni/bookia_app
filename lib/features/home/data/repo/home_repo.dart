@@ -17,30 +17,28 @@ class HomeRepo {
     }
   }
 
+  // static Future<BestSellerModel?> getBestSellers() async {
+  //   try {
+  //     var response = await DioProvider.get(endpoint: Apis.bestSellerProducts);
+  //     print('Raw API Response:');
+  //     print(response.data);
 
+  //     if (response.statusCode == 200) {
+  //       final model = BestSellerModel.fromJson(response.data);
 
-// static Future<BestSellerModel?> getBestSellers() async {
-//   try {
-//     var response = await DioProvider.get(endpoint: Apis.bestSellerProducts);
-    //     print('Raw API Response:');
-//     print(response.data);
-    
-//     if (response.statusCode == 200) {
-//       final model = BestSellerModel.fromJson(response.data);
-      
-//       print(' After Parsing:');
-//       print('Data: ${model.data}');
-//       print('Products: ${model.data?.products}');
-      
-//       return model;
-//     } else {
-//       return null;
-//     }
-//   } catch (e) {
-//     print(' Error: $e');
-//     return null;
-//   }
-// }
+  //       print(' After Parsing:');
+  //       print('Data: ${model.data}');
+  //       print('Products: ${model.data?.products}');
+
+  //       return model;
+  //     } else {
+  //       return null;
+  //     }
+  //   } catch (e) {
+  //     print(' Error: $e');
+  //     return null;
+  //   }
+  // }
   static Future<BestSellerModel?> getBestSellers() async {
     try {
       var response = await DioProvider.get(endpoint: Apis.bestSellerProducts);

@@ -65,7 +65,7 @@ class RegisterScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthSuccessState) {
           log("success");
-           pushToBase(context, MainAppScreen());
+          pushToBase(context, MainAppScreen());
         } else if (state is AuthErrorState) {
           pop(context);
           log("error");

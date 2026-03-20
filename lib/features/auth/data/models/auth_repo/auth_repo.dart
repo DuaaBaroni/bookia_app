@@ -31,15 +31,12 @@ class AuthRepo {
   static Future<AuthResponse?> login(LoginParams params) async {
     try {
       log(params.toJson().toString());
-
       var response = await DioProvider.post(
         endpoint: Apis.login,
         data: params.toJson(),
       );
-
       if (response.statusCode == 200) {
         var data = AuthResponse.fromJson(response.data);
-
         SharedPref.setToken(data.data?.token ?? '');
         SharedPref.setUserInfo(data.data?.user);
 
