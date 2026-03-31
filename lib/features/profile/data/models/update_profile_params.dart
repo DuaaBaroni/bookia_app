@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 class UpdateProfileParams {
@@ -24,18 +23,16 @@ class UpdateProfileParams {
     'phone': phone,
   };
 
-  FormData toFormData() {
-    FormData formData = FormData.fromMap({
-      if (name != null) 'name': name,
-      'address': address,
-      if (phone != null) 'phone': phone,
+  Future<FormData> toFormData() async {
+    return FormData.fromMap({
+      if (name != null && name!.isNotEmpty) 'name': name,
+      if (address != null && address!.isNotEmpty) 'address': address,
+      if (phone != null && phone!.isNotEmpty) 'phone': phone,
       if (image != null)
-        'image': MultipartFile.fromFile(
+        'image': await MultipartFile.fromFile(
           image!.path,
           filename: image!.path.split('/').last,
         ),
     });
-
-    return formData;
   }
 }

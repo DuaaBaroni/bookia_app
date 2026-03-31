@@ -72,7 +72,6 @@ abstract class SharedPref {
 
   static void cacheWishlistIds(List<Product> items) {
     var ids = items.map((item) => item.id.toString()).toList();
-    // cache list of ids
     cacheData(kWishlist, ids);
   }
 
@@ -88,7 +87,6 @@ abstract class SharedPref {
   // cart
   static void cacheCartIds(List<CartItem> items) {
     var ids = items.map((item) => item.itemProductId.toString()).toList();
-    // cache list of ids
     cacheData(kCart, ids);
   }
 

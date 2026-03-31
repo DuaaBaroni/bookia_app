@@ -1,8 +1,13 @@
+import 'package:bookia_app/core/constants/app_images.dart';
+import 'package:bookia_app/core/functions/navigations.dart';
+import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/features/order_history/presentation/widget/order_card.dart';
+import 'package:bookia_app/features/profile/presentation/profile/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia_app/features/order_history/presentation/view_model/order_history_cubit.dart';
 import 'package:bookia_app/features/order_history/presentation/view_model/order_history_state.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
 class OrderHistoryScreen extends StatelessWidget {
@@ -27,18 +32,13 @@ class _OrderHistoryView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
+        leading: InkWell(
+          onTap: () {
+            pushTo(context, ProfileScreen());
+          },
+          child: SvgPicture.asset(AppImages.back),
         ),
-        title: Text(
-          'My Orders',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: Text('My Orders', style: TextStyles.title),
         centerTitle: true,
       ),
       body: BlocBuilder<OrderHistoryCubit, OrderHistoryState>(
@@ -46,9 +46,7 @@ class _OrderHistoryView extends StatelessWidget {
           // Loading State
           if (state is OrderHistoryLoading) {
             return Center(
-              child: CircularProgressIndicator(
-                color: Color(0xFF6B4EE6),
-              ),
+              child: CircularProgressIndicator(color: Color(0xFF6B4EE6)),
             );
           }
 
@@ -58,18 +56,11 @@ class _OrderHistoryView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.error_outline,
-                    size: 60,
-                    color: Colors.grey,
-                  ),
+                  Icon(Icons.error_outline, size: 60, color: Colors.grey),
                   const Gap(16),
                   Text(
                     'Failed to load orders',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[600],
-                    ),
+                    style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   ),
                   const Gap(16),
                   ElevatedButton(
@@ -111,10 +102,7 @@ class _OrderHistoryView extends StatelessWidget {
                   const Gap(8),
                   Text(
                     'Start shopping to see your orders here',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[400],
-                    ),
+                    style: TextStyle(fontSize: 14, color: Colors.grey[400]),
                   ),
                 ],
               ),

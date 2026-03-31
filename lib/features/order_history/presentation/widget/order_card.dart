@@ -29,13 +29,13 @@ class OrderCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Order Number and Date
+          // Order Number and Status
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: Text(
-                  'Order No${order.orderCode}',
+                  'Order #${order.orderCode}', // ✅ FIXED: Added space and #
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -45,6 +45,35 @@ class OrderCard extends StatelessWidget {
                 ),
               ),
               const Gap(8),
+              // Status Badge
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: order.statusColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  order.status,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: order.statusColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const Gap(12),
+          
+          // Date
+          Row(
+            children: [
+              Icon(
+                Icons.calendar_today,
+                size: 14,
+                color: Colors.grey[600],
+              ),
+              const Gap(6),
               Text(
                 order.formattedDate,
                 style: TextStyle(
@@ -56,6 +85,10 @@ class OrderCard extends StatelessWidget {
           ),
           const Gap(16),
           
+          // Divider
+          Divider(color: Colors.grey[200], height: 1),
+          const Gap(16),
+          
           // Total Amount
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,6 +98,7 @@ class OrderCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey[700],
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
@@ -72,7 +106,7 @@ class OrderCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+                  color: Color(0xFF6B4EE6),
                 ),
               ),
             ],

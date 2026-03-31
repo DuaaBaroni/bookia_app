@@ -5,6 +5,8 @@ class User {
   dynamic address;
   dynamic city;
   dynamic phone;
+  dynamic password;
+  dynamic confirmPassword;
   bool? emailVerified;
   String? image;
 
@@ -15,6 +17,8 @@ class User {
     this.address,
     this.city,
     this.phone,
+    this.password,
+    this.confirmPassword,
     this.emailVerified,
     this.image,
   });
@@ -26,6 +30,8 @@ class User {
     address: json['address'] as dynamic,
     city: json['city'] as dynamic,
     phone: json['phone'] as dynamic,
+    password: json['password'] as dynamic,
+    confirmPassword: json['confirm_password'] as dynamic,
     emailVerified: json['email_verified'] as bool?,
     image: json['image'] as String?,
   );
@@ -37,6 +43,8 @@ class User {
     'address': address,
     'city': city,
     'phone': phone,
+    'password': password,
+    'confirm_password': confirmPassword,
     'email_verified': emailVerified,
     'image': image,
   };

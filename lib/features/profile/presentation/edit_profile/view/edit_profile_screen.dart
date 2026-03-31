@@ -167,12 +167,18 @@ class _EditProfileViewState extends State<_EditProfileView> {
               ),
             ),
           ),
+
+          // In your EditProfileScreen bottomNavigationBar button:
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(20),
             child: MainButton(
               text: 'Update Profile',
               onPressed: () {
-                cubit.updateProfile(File(path));
+                File? imageFile;
+                if (path.isNotEmpty) {
+                  imageFile = File(path);
+                }
+                cubit.updateProfile(imageFile);
               },
             ),
           ),

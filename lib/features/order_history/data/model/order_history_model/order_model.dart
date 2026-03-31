@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 
 class Order {
@@ -16,13 +17,19 @@ class Order {
   });
 
   factory Order.fromJson(Map<String, dynamic> json) {
-    return Order(
-      id: json['id'] as int,
-      orderCode: json['order_code'] as String,
-      orderDate: json['order_date'] as String,
-      status: json['status'] as String,
-      total: json['total'] as String,
-    );
+    try {
+      return Order(
+        id: json['id'] as int? ?? 0,
+        orderCode: json['order_code'] as String? ?? '',
+        orderDate: json['order_date'] as String? ?? '',
+        status: json['status'] as String? ?? 'pending',
+        total: json['total']?.toString() ?? '0',
+      );
+    } catch (e) {
+      log('❌ Order parsing error: $e');
+      log('   JSON: $json');
+      rethrow;
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -37,12 +44,16 @@ class Order {
 
   // Helper getters
   String get formattedDate {
-    // Convert 2023-08-14 to 14/08/2023
-    final parts = orderDate.split('-');
-    if (parts.length == 3) {
-      return '${parts[2]}/${parts[1]}/${parts[0]}';
+    try {
+      // Convert 2023-08-14 to 14/08/2023
+      final parts = orderDate.split('-');
+      if (parts.length == 3) {
+        return '${parts[2]}/${parts[1]}/${parts[0]}';
+      }
+      return orderDate;
+    } catch (e) {
+      return orderDate;
     }
-    return orderDate;
   }
 
   Color get statusColor {

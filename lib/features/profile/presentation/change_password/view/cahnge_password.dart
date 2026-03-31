@@ -75,10 +75,9 @@ class _EditProfileViewState extends State<_EditProfileView> {
               child: Column(
                 children: [
                  Text('New Password', style: TextStyles.title),
-                
                   const Gap(50),
                   CustomTextFormField(
-                    controller: cubit.nameController,
+                    controller: cubit.passwordController,
                     hintText: 'Current Password',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -89,7 +88,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   ),
                   const Gap(12),
                   CustomTextFormField(
-                    controller: cubit.phoneController,
+                    controller: cubit.confirmPasswordController,
                     hintText: 'New Password',
                     validator: (value) {
                       if (value != null &&
@@ -102,8 +101,8 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   ),
                   const Gap(12),
                   CustomTextFormField(
-                    controller: cubit.addressController,
-                    hintText: 'Address',
+                    controller: cubit.confirmPasswordController,
+                    hintText: 'Confirm Password',
                   ),
                 ],
               ),
@@ -121,7 +120,5 @@ class _EditProfileViewState extends State<_EditProfileView> {
         );
       },
     );
-  }
-
-  
+  } 
 }

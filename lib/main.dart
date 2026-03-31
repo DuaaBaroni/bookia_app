@@ -1,6 +1,5 @@
 import 'package:bookia_app/core/services/dio/dio_provider.dart';
 import 'package:bookia_app/core/services/local/shared_preferences.dart';
-import 'package:bookia_app/features/profile/presentation/profile/view/profile_screen.dart';
 import 'package:bookia_app/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +15,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ProfileScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }

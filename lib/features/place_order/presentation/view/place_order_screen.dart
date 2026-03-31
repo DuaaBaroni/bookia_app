@@ -1,8 +1,11 @@
 import 'package:bookia_app/core/functions/navigations.dart';
+import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/custom_text_form_field.dart';
+import 'package:bookia_app/core/widgets/dialogs.dart';
 import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/core/widgets/my_body_view.dart';
+import 'package:bookia_app/features/place_order/data/models/place_order_params.dart';
 import 'package:bookia_app/features/place_order/presentation/view/place_order_success.dart';
 import 'package:bookia_app/features/place_order/presentation/view_model/place_order_cubit.dart';
 import 'package:bookia_app/features/place_order/presentation/view_model/place_order_state.dart';
@@ -43,87 +46,111 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => PlaceOrderCubit()..getGovernorates(),
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back_ios),
-          ),
-          automaticallyImplyLeading: false,
-        ),
-        body: MyBodyView(
-          child: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Place Your Order', style: TextStyles.headline),
-                  const Gap(10),
-                  Text(
-                    'Don\'t worry! It occurs. Please enter the email address linked with your account.',
-                    style: TextStyles.body.copyWith(color: Colors.grey),
-                  ),
-                  const Gap(28),
-                  CustomTextFormField(
-                    controller: _fullNameController,
-                    hintText: 'Full Name',
-                    keyboardType: TextInputType.name,
-                    textInputAction: TextInputAction.next,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your full name';
-                      }
-                      return null;
-                    },
-                  ),
-                  const Gap(16),
-                  CustomTextFormField(
-                    controller: _emailController,
-                    hintText: 'Email',
-                    keyboardType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.next,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      if (!value.contains('@')) {
-                        return 'Please enter a valid email';
-                      }
-                      return null;
-                    },
-                  ),
-                  const Gap(16),
-                  CustomTextFormField(
-                    controller: _addressController,
-                    hintText: 'Address',
-                    keyboardType: TextInputType.streetAddress,
-                    textInputAction: TextInputAction.next,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your address';
-                      }
-                      return null;
-                    },
-                  ),
-                  const Gap(16),
-                  CustomTextFormField(
-                    controller: _phoneController,
-                    hintText: 'Phone',
-                    keyboardType: TextInputType.phone,
-                    textInputAction: TextInputAction.done,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your phone number';
-                      }
-                      return null;
-                    },
-                  ),
-                  const Gap(16),
+      child: BlocConsumer<PlaceOrderCubit, PlaceOrderState>(
+        listener: (context, state) {
+          if (state is PlaceOrderSuccessState) {
+            pop(context); // Close loading dialog
+            pushReplacement(context, PlaceOrderSuccess());
+          }
+          else if (state is PlaceOrderErrorState) {
+            pop(context); // Close loading dialog
+            showMyDialog(context, state.message);
+          }
+          else if (state is PlaceOrderLoadingState) {
+            showLoadingDialog(context);
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: Icon(Icons.arrow_back_ios),
+              ),
+              automaticallyImplyLeading: false,
+              title: Text('Place Order', style: TextStyles.title),
+              centerTitle: true,
+            ),
+            body: MyBodyView(
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Place Your Order', style: TextStyles.headline),
+                      const Gap(10),
+                      Text(
+                        'Please fill in your delivery details to complete your order.',
+                        style: TextStyles.body.copyWith(color: Colors.grey),
+                      ),
+                      const Gap(28),
 
-                  BlocBuilder<PlaceOrderCubit, PlaceOrderState>(
-                    builder: (context, state) {
-                      return GestureDetector(
+                      // Full Name Field
+                      CustomTextFormField(
+                        controller: _fullNameController,
+                        hintText: 'Full Name',
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.next,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your full name';
+                          }
+                          return null;
+                        },
+                      ),
+                      const Gap(16),
+
+                      // Email Field
+                      CustomTextFormField(
+                        controller: _emailController,
+                        hintText: 'Email',
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          if (!value.contains('@')) {
+                            return 'Please enter a valid email';
+                          }
+                          return null;
+                        },
+                      ),
+                      const Gap(16),
+
+                      // Address Field
+                      CustomTextFormField(
+                        controller: _addressController,
+                        hintText: 'Address',
+                        keyboardType: TextInputType.streetAddress,
+                        textInputAction: TextInputAction.next,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your address';
+                          }
+                          return null;
+                        },
+                      ),
+                      const Gap(16),
+
+                      // Phone Field
+                      CustomTextFormField(
+                        controller: _phoneController,
+                        hintText: 'Phone',
+                        keyboardType: TextInputType.phone,
+                        textInputAction: TextInputAction.done,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your phone number';
+                          }
+                          return null;
+                        },
+                      ),
+                      const Gap(16),
+
+                      // Governorate Dropdown
+                      GestureDetector(
                         onTap: () {
                           if (state is GovernoratesSuccessState) {
                             var cubit = context.read<PlaceOrderCubit>();
@@ -138,10 +165,17 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                                 });
                               },
                             );
-                          } else {
+                          } else if (state is GovernoratesLoadingState) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Loading governorates...'),
+                              ),
+                            );
+                          } else if (state is GovernoratesErrorState) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Failed to load governorates'),
+                                backgroundColor: Colors.red,
                               ),
                             );
                           }
@@ -160,34 +194,67 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                             prefixIcon: const Icon(Icons.arrow_drop_down),
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
 
-                  const Gap(32),
-                  Row(
-                    children: [
-                      Text('Total:', style: TextStyles.subtitle1),
-                      const Spacer(),
-                      Text('\$ ${widget.total}', style: TextStyles.subtitle1),
+                      const Gap(32),
+
+                      // Total Amount
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Total:', style: TextStyles.subtitle1),
+                            Text(
+                              '\$${widget.total}',
+                              style: TextStyles.subtitle1.copyWith(
+                                color: AppColors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Gap(24),
+
+                      // Submit Button
+                      MainButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            if (_selectedGovernorateId == null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Please select a governorate'),
+                                  backgroundColor: Colors.red,
+                                ),
+                              );
+                              return;
+                            }
+
+                            final params = PlaceOrderParams(
+                              name: _fullNameController.text.trim(),
+                              email: _emailController.text.trim(),
+                              address: _addressController.text.trim(),
+                              phone: _phoneController.text.trim(),
+                              governorateId: _selectedGovernorateId!,
+                            );
+
+                            context.read<PlaceOrderCubit>().placeOrder(params);
+                          }
+                        },
+                        text: 'Submit Order',
+                      ),
                     ],
                   ),
-                  const Gap(16),
-                  MainButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        pushTo(context, PlaceOrderSuccess());
-                      }
-                    },
-                    text: 'Submit Order',
-                  ),
-
-                  const Gap(20),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

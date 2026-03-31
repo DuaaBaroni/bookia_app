@@ -7,11 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditProfileCubit extends Cubit<EditProfileState> {
-  EditProfileCubit() : super(EditProfileInitial());
+  EditProfileCubit() : super(EditProfileInitial()) {
+    loadInitData();
+  }
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+
   String imageUrl = '';
 
   void loadInitData() {
@@ -19,24 +24,43 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     nameController.text = profileData?.name ?? '';
     phoneController.text = profileData?.phone ?? '';
     addressController.text = profileData?.address ?? '';
+    passwordController.text = profileData?.password?? '';
+    confirmPasswordController.text = profileData?.confirmPassword ?? '';
     imageUrl = profileData?.image ?? '';
-    emit(EditProfileSuccess());
+    emit(EditProfileInitial());
   }
 
-  Future<void> updateProfile(File image) async {
+  Future<void> updateProfile(File? image) async {
     emit(EditProfileLoading());
-    var params = UpdateProfileParams(
-      name: nameController.text,
-      phone: phoneController.text,
-      address: addressController.text,
-      image: image,
-    );
-    var data = await ProfileRepo.editProfile(params);
 
-    if (data != null) {
-      emit(EditProfileSuccess());
-    } else {
+    try {
+      var params = UpdateProfileParams(
+        name: nameController.text.trim(),
+        phone: phoneController.text.trim(),
+        address: addressController.text.trim(),
+        image: (image != null && image.path.isNotEmpty)
+            ? image
+            : null, // ✅ Check if image exists
+      );
+
+      var data = await ProfileRepo.editProfile(params);
+
+      if (data != null) {
+        imageUrl = data.data?.image ?? imageUrl;
+        emit(EditProfileSuccess());
+      } else {
+        emit(EditProfileError());
+      }
+    } catch (e) {
       emit(EditProfileError());
     }
+  }
+
+  @override
+  Future<void> close() {
+    nameController.dispose();
+    phoneController.dispose();
+    addressController.dispose();
+    return super.close();
   }
 }
