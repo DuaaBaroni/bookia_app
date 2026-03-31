@@ -98,7 +98,7 @@ Complete guide for the contact support feature.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/contact.jpg" height="500">
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/contact_us.jpg" height="500">
  </div>
-
+ 
  # 🛡️Privacy & Terms
 Complete guide for the privacy policy screen.
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/privacy.jpg" height="500">
