@@ -45,6 +45,12 @@ The Product Details page displays comprehensive information about a selected boo
  <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/details-3.jpg" height="500">
  </div>
 
+ # 📚 Wishlist
+The Product Details page displays comprehensive information about a selected book.
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/wishlist.jpg" height="500">
+ <img src="https://github.com/DuaaBaroni/bookia_app/blob/main/lib/screen_shot/empty_state.jpg" height="500">
+ </div>
+
 
 
 
