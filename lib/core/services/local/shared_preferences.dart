@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:bookia_app/features/auth/data/models/auth_model/user.dart';
+import 'package:bookia_app/features/cart/data/models/cart_response/cart_item.dart';
 import 'package:bookia_app/features/home/data/model/best_seller_model/products.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +10,7 @@ abstract class SharedPref {
   static const String kToken = 'token';
   static const String kUser = 'user';
   static const String kWishlist = 'wishlistIds';
+  static const String kCart = 'cartIds';
 
   static Future<void> init() async {
     pref = await SharedPreferences.getInstance();
@@ -41,7 +43,7 @@ abstract class SharedPref {
     var jsonToObject = User.fromJson(stringToJson);
     return jsonToObject;
   }
- 
+
   static Future<void> cacheData(String key, dynamic value) async {
     if (value is String) {
       await pref.setString(key, value);
@@ -68,7 +70,7 @@ abstract class SharedPref {
     await pref.clear();
   }
 
-   static void cacheWishlistIds(List<Product> items) {
+  static void cacheWishlistIds(List<Product> items) {
     var ids = items.map((item) => item.id.toString()).toList();
     // cache list of ids
     cacheData(kWishlist, ids);
@@ -76,6 +78,22 @@ abstract class SharedPref {
 
   static List<int> getWishlistIds() {
     var ids = getData(kWishlist);
+    if (ids is List<String>) {
+      return ids.map((id) => int.tryParse(id) ?? 0).toList();
+    } else {
+      return [];
+    }
+  }
+
+  // cart
+  static void cacheCartIds(List<CartItem> items) {
+    var ids = items.map((item) => item.itemProductId.toString()).toList();
+    // cache list of ids
+    cacheData(kCart, ids);
+  }
+
+  static List<int> getCartIds() {
+    var ids = getData(kCart);
     if (ids is List<String>) {
       return ids.map((id) => int.tryParse(id) ?? 0).toList();
     } else {

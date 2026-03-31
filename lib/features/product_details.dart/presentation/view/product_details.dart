@@ -1,13 +1,20 @@
-import 'package:bookia_app/core/constants/app_images.dart';
 import 'package:bookia_app/core/functions/navigations.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
-import 'package:bookia_app/core/widgets/main_button.dart';
+import 'package:bookia_app/core/widgets/my_body_view.dart';
 import 'package:bookia_app/features/home/data/model/best_seller_model/products.dart';
+import 'package:bookia_app/features/home/presentation/view/home_view.dart';
+import 'package:bookia_app/features/home/presentation/widgets/best_seller.dart';
+import 'package:bookia_app/features/product_details.dart/presentation/view_model/cart_action/cart_icon.dart';
 import 'package:bookia_app/features/product_details.dart/presentation/widgets/wishlist_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+
+class DetailsArg {
+  final Product product;
+  final String source;
+  DetailsArg({required this.product, required this.source});
+}
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key, required this.product});
@@ -16,80 +23,64 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(
-          top: 60,
-          left: 20,
-          right: 20,
-          bottom: 20,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: InkWell(
+          onTap: () {
+            pop(context);
+          },
+
+          child: Icon(Icons.arrow_back_ios, size: 16),
         ),
+        actions: [WishlistActionWidget(id: product.id ?? 0)],
+      ),
+      body: MyBodyView(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      pop(context);
-                    },
-                    child: SvgPicture.asset(AppImages.back),
-                  ),
-                  WishlistActionWidget(id: product.id ?? 0),
-                ],
-              ),
-              Gap(10),
-              Padding(
-                padding: EdgeInsets.only(top: 40),
+              Hero(
+                tag: product.id ?? '',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(product.image ?? "", height: 260),
+                  child: Image.network(
+                    product.image ?? '',
+                    width: 180,
+                    height: 270,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-              Gap(14),
+              Gap(11),
               Text(
+                product.name ?? '',
+                style: TextStyles.headline,
                 textAlign: TextAlign.center,
-                product.name ?? "",
-                style: TextStyles.headline.copyWith(fontSize: 23),
               ),
-              Gap(6),
+              Gap(11),
               Text(
-                product.category ?? "",
+                product.category ?? '',
                 style: TextStyles.caption1.copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
-              Gap(16),
-              Text(
-                textAlign: TextAlign.justify,
-                product.description ?? "",
-                style: TextStyles.caption2.copyWith(
-                  color: AppColors.black,
-                  height: 1.5,
-                ),
-              ),
               Gap(20),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      "\$${product.price}",
-                      style: TextStyles.title.copyWith(fontSize: 20),
-                    ),
-                  ),
-                  Expanded(
-                    child: MainButton(
-                      minWidth: 250,
-                      bgColor: AppColors.black,
-                      textColor: AppColors.borderColor,
-                      onPressed: () {},
-                      text: "Add To Cart",
-                    ),
-                  ),
-                ],
+              Text(
+                product.description ?? '',
+                textAlign: TextAlign.justify,
+                style: TextStyles.caption2.copyWith(color: AppColors.darkColor),
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(22, 5, 22, 22),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('${product.price} \$', style: TextStyles.title),
+            CartActionWidget(id: product.id ?? 0),
+          ],
         ),
       ),
     );

@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:bookia_app/core/services/local/shared_preferences.dart';
-import 'package:bookia_app/features/product_details.dart/presentation/view_model/wishlist_action_state.dart';
+import 'package:bookia_app/features/product_details.dart/presentation/view_model/wishlist_action/cubit/wishlist_action_state.dart';
 import 'package:bookia_app/features/wishlist/data/model/repo/wishlist_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
