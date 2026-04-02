@@ -6,6 +6,7 @@ import 'package:bookia_app/core/widgets/custom_text_form_field.dart';
 import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/features/auth/presentation/view/login_screen.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/otp_verfication.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -51,22 +52,22 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Forgot Password?", style: TextStyles.headline),
+                Text("Forgot Password?".tr(), style: TextStyles.headline),
                 Gap(8),
                 Text(
-                  "We need to verify you. We will send you a one time verification code.",
+                  "We need to verify you. We will send you a one time verification code.".tr(),
                   style: TextStyles.caption1.copyWith(
                     color: AppColors.darkGreyColor,
                   ),
                 ),
                 Gap(30),
                 CustomTextFormField(
-                  hintText: "Enter your email",
+                  hintText: "Enter your email".tr(),
                   controller: phoneController,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your phone number';
+                      return 'Please enter your phone number'.tr();
                     }
                     return null;
                   },
@@ -85,7 +86,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Remember Password?', style: TextStyles.caption1),
+                    Text('Remember Password?'.tr(), style: TextStyles.caption1),
                     Gap(5),
                     GestureDetector(
                       onTap: () {

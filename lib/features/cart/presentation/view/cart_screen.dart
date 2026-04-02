@@ -5,6 +5,7 @@ import 'package:bookia_app/core/widgets/my_body_view.dart';
 import 'package:bookia_app/features/cart/presentation/view_model/cart_cubit.dart';
 import 'package:bookia_app/features/cart/presentation/widgets/cart_books.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/view/profile_details.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,7 +25,7 @@ class CartScreen extends StatelessWidget {
             },
             child: SvgPicture.asset(AppImages.back),
           ),
-          title: Text('MyCart', style: TextStyles.title),
+          title: Text('MyCart'.tr(), style: TextStyles.title),
           centerTitle: true,
         ),
         body: MyBodyView(child: CartBooks()),

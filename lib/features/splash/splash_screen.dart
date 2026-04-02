@@ -8,6 +8,7 @@ import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/bottom_navigation_bar.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
 import 'package:bookia_app/features/welcome/welcome_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -42,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             CustomSvgPicture(path: AppImages.logoSvg, width: 250),
             Gap(10),
-            Text('Order Your Book Now!', style: TextStyles.subtitle2),
+            Text('Order Your Book Now!'.tr(), style: TextStyles.subtitle2),
           ],
         ),
       ),

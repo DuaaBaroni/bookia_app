@@ -12,6 +12,7 @@ dependencies:
   cached_network_image: ^3.4.1
   carousel_slider: ^5.1.2
   dio: ^5.9.2
+  easy_localization: ^3.0.8
   flutter_bloc: ^9.1.1
   flutter_svg: ^2.2.3
   gap: ^3.0.1
@@ -35,6 +36,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/translations/
   fonts:
     - family: DMSerif
       fonts:

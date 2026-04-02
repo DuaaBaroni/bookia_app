@@ -1,6 +1,7 @@
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/features/home/data/model/best_seller_model/products.dart';
 import 'package:bookia_app/features/home/presentation/widgets/book_card.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -20,44 +21,44 @@ class _SearchScreenState extends State<SearchScreen> {
   final List<Product> _allBooks = [
     Product(
       id: 1,
-      name: 'The Republic',
+      name: 'The Republic'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71N5zYcNcaL.jpg',
-      price: '285',
+      price: '285'.tr(),
       priceAfterDiscount: 285,
     ),
     Product(
       id: 2,
-      name: 'The Republicldldld dfge',
+      name: 'The Republicldldld dfge'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71N5zYcNcaL.jpg',
       price: '285',
       priceAfterDiscount: 285,
     ),
     Product(
       id: 3,
-      name: 'Pride and Prejudice',
+      name: 'Pride and Prejudice'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71Q1tPupKjL.jpg',
-      price: '250',
+      price: '250'.tr(),
       priceAfterDiscount: 250,
     ),
     Product(
       id: 4,
-      name: 'To Kill a Mockingbird',
+      name: 'To Kill a Mockingbird'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg',
-      price: '300',
+      price: '300'.tr(),
       priceAfterDiscount: 300,
     ),
     Product(
       id: 5,
-      name: '1984',
+      name: '1984'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg',
-      price: '275',
+      price: '275'.tr(),
       priceAfterDiscount: 275,
     ),
     Product(
       id: 6,
-      name: 'The Great Gatsby',
+      name: 'The Great Gatsby'.tr(),
       image: 'https://images-na.ssl-images-amazon.com/images/I/71FTb9X6wsL.jpg',
-      price: '260',
+      price: '260'.tr(),
       priceAfterDiscount: 260,
     ),
   ];
@@ -156,21 +157,17 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildContent() {
-    // Case 1: User hasn't searched yet
     if (!_hasSearched) {
       return _buildInitialState();
     }
 
-    // Case 2: User searched but no results
     if (_filteredBooks.isEmpty) {
       return _buildEmptyResults();
     }
 
-    // Case 3: Show search results
     return _buildBookGrid();
   }
 
-  // Initial State: Before any search
   Widget _buildInitialState() {
     return Center(
       child: Column(
@@ -192,7 +189,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           const Gap(8),
           Text(
-            'Start typing to search for books',
+            'Start typing to search for books'.tr(),
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[400],
@@ -203,7 +200,6 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  // Empty Results: User searched but nothing found
   Widget _buildEmptyResults() {
     return Center(
       child: Column(
@@ -216,7 +212,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           const Gap(16),
           Text(
-            'No books found',
+            'No books found'.tr(),
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -225,7 +221,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           const Gap(8),
           Text(
-            'Try searching with different keywords',
+            'Try searching with different keywords'.tr(),
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[400],

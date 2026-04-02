@@ -1,5 +1,4 @@
 import 'package:bookia_app/core/constants/app_images.dart';
-
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/contact_us/contact_form.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/contact_us/contact_info.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/contact_us/contact_us_header.dart';

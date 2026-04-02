@@ -13,6 +13,7 @@ import 'package:bookia_app/features/profile/presentation/edit_profile/view_model
 import 'package:bookia_app/features/profile/presentation/edit_profile/view_model/edit_profile_state.dart';
 import 'package:bookia_app/features/profile/presentation/profile/view/profile_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -50,7 +51,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
           pop(context);
         } else if (state is EditProfileError) {
           pop(context);
-          showMyDialog(context, 'Failed to update profile. Please try again.');
+          showMyDialog(context, 'Failed to update profile. Please try again.'.tr());
         } else if (state is EditProfileLoading) {
           showLoadingDialog(context);
         }
@@ -137,10 +138,10 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   const Gap(50),
                   CustomTextFormField(
                     controller: cubit.nameController,
-                    hintText: 'Full Name',
+                    hintText: 'Full Name'.tr(),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your name';
+                        return 'Please enter your name'.tr();
                       }
                       return null;
                     },
@@ -153,7 +154,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
                       if (value != null &&
                           value.isNotEmpty == true &&
                           !isEgyptianPhone(value)) {
-                        return 'Please enter a valid Egyptian phone number';
+                        return 'Please enter a valid Egyptian phone number'.tr();
                       }
                       return null;
                     },
@@ -161,7 +162,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   const Gap(12),
                   CustomTextFormField(
                     controller: cubit.addressController,
-                    hintText: 'Address',
+                    hintText: 'Address'.tr(),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/contact_us/contact_info_tile.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:gap/gap.dart';
@@ -40,7 +41,7 @@ class ContactInfoCard extends StatelessWidget {
           const Gap(12),
           ContactInfoTile(
             icon: Icons.location_on,
-            title: 'Address',
+            title: 'Address'.tr(),
             subtitle: '123 Book Street, Reading City, RC 12345',
           ),
         ],

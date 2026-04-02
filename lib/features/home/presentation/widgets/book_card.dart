@@ -4,6 +4,7 @@ import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/features/home/data/model/best_seller_model/products.dart';
 import 'package:bookia_app/features/product_details.dart/presentation/view/product_details.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -23,9 +24,7 @@ class BookCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         pushTo(context, ProductDetails(product: product));
-        //.then((value) {
-        //  onRefresh?.call();
-      //  })
+
       },
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -86,7 +85,7 @@ class BookCard extends StatelessWidget {
                           minWidth: 70,
                           minHeight: 30,
                           bgColor: AppColors.darkColor,
-                          text: 'Buy',
+                          text: 'Buy'.tr(),
                           onPressed: () {},
                         ),
                       ),

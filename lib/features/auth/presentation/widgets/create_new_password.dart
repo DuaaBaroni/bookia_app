@@ -6,6 +6,7 @@ import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/core/widgets/password_text_form_field.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/otp_verfication.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/password_changed.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -63,12 +64,12 @@ class _NewPasswordState extends State<NewPassword> {
               Gap(30),
               PasswordTextFormField(
                 controller: passwordController,
-                hintText: 'New Password',
+                hintText: 'New Password'.tr(),
               ),
               Gap(10),
               PasswordTextFormField(
                 controller: passwordController,
-                hintText: 'Confirm Password',
+                hintText: 'Confirm Password'.tr(),
               ),
               Gap(60),
               MainButton(

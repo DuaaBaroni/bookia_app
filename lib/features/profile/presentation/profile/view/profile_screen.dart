@@ -4,7 +4,6 @@ import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
 import 'package:bookia_app/core/widgets/my_body_view.dart';
-import 'package:bookia_app/features/profile/presentation/edit_profile/view/edit_profile_screen.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/view/profile_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

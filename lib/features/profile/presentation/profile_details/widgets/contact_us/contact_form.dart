@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
@@ -40,7 +41,7 @@ class ContactForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Send us a message', style: TextStyles.body),
+            Text('Send us a message'.tr(), style: TextStyles.body),
             const Gap(20),
 
             // Name Field
@@ -53,7 +54,7 @@ class ContactForm extends StatelessWidget {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your name';
+                  return 'Please enter your name'.tr();
                 }
                 return null;
               },
@@ -70,10 +71,10 @@ class ContactForm extends StatelessWidget {
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
+                  return 'Please enter your email'.tr();
                 }
                 if (!value.contains('@')) {
-                  return 'Please enter a valid email';
+                  return 'Please enter a valid email'.tr();
                 }
                 return null;
               },
@@ -83,7 +84,7 @@ class ContactForm extends StatelessWidget {
             // Message Field
             CustomTextFormField(
               controller: messageController,
-              hintText: 'Enter your message',
+              hintText: 'Enter your message'.tr(),
               prefixIcon: Icon(
                 Icons.message,
                 color: AppColors.primaryColor,
@@ -91,7 +92,7 @@ class ContactForm extends StatelessWidget {
               
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your message';
+                  return 'Please enter your message'.tr();
                 }
                 return null;
               },
@@ -115,7 +116,7 @@ class ContactForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Send Message',
+                      'Send Message'.tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

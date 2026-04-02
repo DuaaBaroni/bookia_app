@@ -1,4 +1,5 @@
 import 'package:bookia_app/features/order_history/data/model/order_history_model/order_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -35,7 +36,7 @@ class OrderCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'Order #${order.orderCode}', // ✅ FIXED: Added space and #
+                  'Order #${order.orderCode}', 
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -94,7 +95,7 @@ class OrderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Total Amount:',
+                'Total Amount:'.tr(),
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey[700],

@@ -4,6 +4,7 @@ import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/view/profile_details.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/faq_questions/header_card.dart';
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/faq_questions/question_card.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -98,7 +99,7 @@ class _BookQuestionsViewState extends State<BookQuestionsView> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: MainButton(
-                text: "Get My Recommendations",
+                text: "Get My Recommendations".tr(),
                 onPressed: () {},
               ),
             ),

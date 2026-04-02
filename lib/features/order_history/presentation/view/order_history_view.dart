@@ -3,6 +3,7 @@ import 'package:bookia_app/core/functions/navigations.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/features/order_history/presentation/widget/order_card.dart';
 import 'package:bookia_app/features/profile/presentation/profile/view/profile_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookia_app/features/order_history/presentation/view_model/order_history_cubit.dart';
@@ -70,7 +71,7 @@ class _OrderHistoryView extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF6B4EE6),
                     ),
-                    child: Text('Retry'),
+                    child: Text('Retry'.tr()),
                   ),
                 ],
               ),
@@ -92,7 +93,7 @@ class _OrderHistoryView extends StatelessWidget {
                   ),
                   const Gap(16),
                   Text(
-                    'No orders yet',
+                    'No orders yet'.tr(),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -101,7 +102,7 @@ class _OrderHistoryView extends StatelessWidget {
                   ),
                   const Gap(8),
                   Text(
-                    'Start shopping to see your orders here',
+                    'Start shopping to see your orders here'.tr(),
                     style: TextStyle(fontSize: 14, color: Colors.grey[400]),
                   ),
                 ],

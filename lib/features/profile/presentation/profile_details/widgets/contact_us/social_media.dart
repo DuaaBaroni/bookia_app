@@ -1,4 +1,5 @@
 import 'package:bookia_app/features/profile/presentation/profile_details/widgets/contact_us/social_btn.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:gap/gap.dart';
@@ -23,7 +24,7 @@ class SocialMediaCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text('Follow us on social media', style: TextStyles.body),
+          Text('Follow us on social media'.tr(), style: TextStyles.body),
           const Gap(16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

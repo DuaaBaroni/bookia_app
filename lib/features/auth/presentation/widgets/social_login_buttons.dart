@@ -2,6 +2,7 @@ import 'package:bookia_app/core/constants/app_images.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/custom_svg_picture.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -24,13 +25,13 @@ class SocialLoginButtons extends StatelessWidget {
         Gap(20),
         SocialButton(
           path: AppImages.googleSvg,
-          text: 'Continue with Google',
+          text: 'Continue with Google'.tr(),
           onTap: () {},
         ),
         Gap(15),
         SocialButton(
           path: AppImages.appleSvg,
-          text: 'Continue with Apple',
+          text: 'Continue with Apple'.tr(),
           onTap: () {},
         ),
       ],

@@ -10,6 +10,7 @@ import 'package:bookia_app/features/place_order/presentation/view/place_order_su
 import 'package:bookia_app/features/place_order/presentation/view_model/place_order_cubit.dart';
 import 'package:bookia_app/features/place_order/presentation/view_model/place_order_state.dart';
 import 'package:bookia_app/features/place_order/presentation/widgets/gov_bottom_sheet.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -68,7 +69,7 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                 icon: Icon(Icons.arrow_back_ios),
               ),
               automaticallyImplyLeading: false,
-              title: Text('Place Order', style: TextStyles.title),
+              title: Text('Place Order'.tr(), style: TextStyles.title),
               centerTitle: true,
             ),
             body: MyBodyView(
@@ -78,10 +79,10 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Place Your Order', style: TextStyles.headline),
+                      Text('Place Your Order'.tr(), style: TextStyles.headline),
                       const Gap(10),
                       Text(
-                        'Please fill in your delivery details to complete your order.',
+                        'Please fill in your delivery details to complete your order.'.tr(),
                         style: TextStyles.body.copyWith(color: Colors.grey),
                       ),
                       const Gap(28),
@@ -89,12 +90,12 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                       // Full Name Field
                       CustomTextFormField(
                         controller: _fullNameController,
-                        hintText: 'Full Name',
+                        hintText: 'Full Name'.tr(),
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.next,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your full name';
+                            return 'Please enter your full name'.tr();
                           }
                           return null;
                         },
@@ -104,15 +105,15 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                       // Email Field
                       CustomTextFormField(
                         controller: _emailController,
-                        hintText: 'Email',
+                        hintText: 'Email'.tr(),
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
+                            return 'Please enter your email'.tr();
                           }
                           if (!value.contains('@')) {
-                            return 'Please enter a valid email';
+                            return 'Please enter a valid email'.tr();
                           }
                           return null;
                         },
@@ -122,12 +123,12 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                       // Address Field
                       CustomTextFormField(
                         controller: _addressController,
-                        hintText: 'Address',
+                        hintText: 'Address'.tr(),
                         keyboardType: TextInputType.streetAddress,
                         textInputAction: TextInputAction.next,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your address';
+                            return 'Please enter your address'.tr();
                           }
                           return null;
                         },
@@ -137,12 +138,12 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                       // Phone Field
                       CustomTextFormField(
                         controller: _phoneController,
-                        hintText: 'Phone',
+                        hintText: 'Phone'.tr(),
                         keyboardType: TextInputType.phone,
                         textInputAction: TextInputAction.done,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your phone number';
+                            return 'Please enter your phone number'.tr();
                           }
                           return null;
                         },
@@ -168,13 +169,13 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                           } else if (state is GovernoratesLoadingState) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Loading governorates...'),
+                                content: Text('Loading governorates...'.tr()),
                               ),
                             );
                           } else if (state is GovernoratesErrorState) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Failed to load governorates'),
+                                content: Text('Failed to load governorates'.tr()),
                                 backgroundColor: Colors.red,
                               ),
                             );
@@ -187,7 +188,7 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                             readOnly: true,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please select a governorate';
+                                return 'Please select a governorate'.tr();
                               }
                               return null;
                             },
@@ -228,7 +229,7 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                             if (_selectedGovernorateId == null) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Please select a governorate'),
+                                  content: Text('Please select a governorate'.tr()),
                                   backgroundColor: Colors.red,
                                 ),
                               );
@@ -246,7 +247,7 @@ class _PlaceOrderScreenState extends State<PlaceOrderScreen> {
                             context.read<PlaceOrderCubit>().placeOrder(params);
                           }
                         },
-                        text: 'Submit Order',
+                        text: 'Submit Order'.tr(),
                       ),
                     ],
                   ),

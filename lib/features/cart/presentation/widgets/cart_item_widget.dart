@@ -3,6 +3,7 @@ import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/dialogs.dart';
 import 'package:bookia_app/features/cart/data/models/cart_response/cart_item.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -96,7 +97,7 @@ class CartItemWidget extends StatelessWidget {
                         if (updatedCount <= (item.itemProductStock ?? 0)) {
                           onUpdate!(updatedCount);
                         } else {
-                          showMyDialog(context, 'Cannot add more than stock');
+                          showMyDialog(context, 'Cannot add more than stock'.tr());
                         }
                       },
                     ),

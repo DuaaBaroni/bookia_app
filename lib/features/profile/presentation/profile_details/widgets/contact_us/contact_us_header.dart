@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
@@ -26,7 +27,7 @@ class ContactHeader extends StatelessWidget {
           Text('Get in Touch', style: TextStyles.title),
           const Gap(8),
           Text(
-            'We\'d love to hear from you!\nSend us a message and we\'ll respond as soon as possible.',
+            'We\'d love to hear from you!\nSend us a message and we\'ll respond as soon as possible.'.tr(),
             textAlign: TextAlign.center,
             style: TextStyles.caption1.copyWith(
               color: AppColors.backgroundColor,

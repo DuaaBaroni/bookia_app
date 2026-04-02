@@ -1,4 +1,5 @@
 import 'package:bookia_app/core/styles/text_styles.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -30,19 +31,19 @@ class HeaderCard extends StatelessWidget {
                     const Icon(Icons.menu_book, color: Colors.white, size: 28),
                     const Gap(8),
                     Text(
-                      'Bookia',
+                      'Bookia'.tr(),
                       style: TextStyles.title.copyWith(color: Colors.white),
                     ),
                   ],
                 ),
                 const Gap(8),
                 Text(
-                  'Discover Your\nNext Favorite Book',
+                  'Discover Your\nNext Favorite Book'.tr(),
                   style: TextStyles.caption1.copyWith(color: Colors.white),
                 ),
                 const Gap(12),
                 Text(
-                  'Answer a few questions to get\npersonalized recommendations',
+                  'Answer a few questions to get\npersonalized recommendations'.tr(),
                   style: TextStyles.caption1.copyWith(color: Colors.white),
                 ),
               ],

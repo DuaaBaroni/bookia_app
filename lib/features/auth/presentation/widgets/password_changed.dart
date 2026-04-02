@@ -4,6 +4,7 @@ import 'package:bookia_app/core/styles/colors.dart';
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/features/auth/presentation/view/login_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -19,12 +20,12 @@ class PasswordChanged extends StatelessWidget {
           Center(child: SvgPicture.asset(AppImages.success)),
           Gap(20),
           Text(
-            "Password Changed!Password Changed!Your password has been changed successfully.Your password has been changed successfully.Back to LoginBack to Login",
+            "Password Changed!Password Changed!Your password has been changed successfully.Your password has been changed successfully.Back to LoginBack to Login".tr(),
             style: TextStyles.headline,
           ),
           Gap(10),
           Text(
-            "Your password has been changed successfully.",
+            "Your password has been changed successfully.".tr(),
             style: TextStyles.caption1.copyWith(color: AppColors.darkGreyColor),
           ),
           Gap(20),

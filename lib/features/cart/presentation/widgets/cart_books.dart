@@ -6,6 +6,7 @@ import 'package:bookia_app/features/cart/presentation/view_model/cart_cubit.dart
 import 'package:bookia_app/features/cart/presentation/view_model/cart_state.dart';
 import 'package:bookia_app/features/cart/presentation/widgets/cart_item_widget.dart';
 import 'package:bookia_app/features/place_order/presentation/view/place_order_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +36,7 @@ class CartBooks extends StatelessWidget {
         if (state is CartSuccessState) {
           var cubit = context.read<CartCubit>();
           if (cubit.products.isEmpty) {
-            return const Center(child: Text('No books in cart'));
+            return  Center(child: Text('No books in cart'.tr()));
           }
           return Column(
             children: [
@@ -70,7 +71,7 @@ class CartBooks extends StatelessWidget {
                   onPressed: () {
                     cubit.checkout();
                   },
-                  text: 'Checkout',
+                  text: 'Checkout'.tr(),
                 ),
               ),
             ],

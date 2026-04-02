@@ -14,6 +14,7 @@ import 'package:bookia_app/core/widgets/password_text_form_field.dart';
 import 'package:bookia_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia_app/features/auth/presentation/cubit/auth_state.dart';
 import 'package:bookia_app/features/auth/presentation/view/login_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -84,17 +85,17 @@ class RegisterScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Hello! Register to get started.',
+                    'Hello! Register to get started.'.tr(),
                     style: TextStyles.headline,
                   ),
                   Gap(32),
                   CustomTextFormField(
                     controller: cubit.usernameController,
-                    hintText: 'Username',
+                    hintText: 'Username'.tr(),
                     keyboardType: TextInputType.text,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your username';
+                        return 'Please enter your username'.tr();
                       }
                       return null;
                     },
@@ -102,13 +103,13 @@ class RegisterScreen extends StatelessWidget {
                   Gap(15),
                   CustomTextFormField(
                     controller: cubit.emailController,
-                    hintText: 'Email',
+                    hintText: 'Email'.tr(),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your email'.tr();
                       } else if (!isEmailValid(value)) {
-                        return 'Please enter a valid email';
+                        return 'Please enter a valid email'.tr();
                       }
                       return null;
                     },
@@ -119,7 +120,7 @@ class RegisterScreen extends StatelessWidget {
                     hintText: 'Password',
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your password';
+                        return 'Please enter your password'.tr();
                       }
                       return null;
                     },
@@ -127,10 +128,10 @@ class RegisterScreen extends StatelessWidget {
                   Gap(15),
                   PasswordTextFormField(
                     controller: cubit.passwordConfirmationController,
-                    hintText: 'Confirmation password',
+                    hintText: 'Confirmation password'.tr(),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your confirmation password';
+                        return 'Please enter your confirmation password'.tr();
                       }
                       return null;
                     },

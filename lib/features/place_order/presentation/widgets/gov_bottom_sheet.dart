@@ -1,5 +1,6 @@
 import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/features/place_order/data/models/governorate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -31,7 +32,7 @@ void showGovernorateBottomSheet(
             const Gap(16),
             
             // Title
-            Text('Select Governorate', style: TextStyles.title),
+            Text('Select Governorate'.tr(), style: TextStyles.title),
             const Divider(),
             const Gap(8),
             

@@ -10,6 +10,7 @@ import 'package:bookia_app/core/widgets/my_body_view.dart';
 import 'package:bookia_app/features/profile/presentation/edit_profile/view_model/edit_profile_cubit.dart';
 import 'package:bookia_app/features/profile/presentation/edit_profile/view_model/edit_profile_state.dart';
 import 'package:bookia_app/features/profile/presentation/profile/view/profile_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,10 +79,10 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   const Gap(50),
                   CustomTextFormField(
                     controller: cubit.passwordController,
-                    hintText: 'Current Password',
+                    hintText: 'Current Password'.tr(),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your name';
+                        return 'Please enter your name'.tr();
                       }
                       return null;
                     },
@@ -89,12 +90,12 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   const Gap(12),
                   CustomTextFormField(
                     controller: cubit.confirmPasswordController,
-                    hintText: 'New Password',
+                    hintText: 'New Password'.tr(),
                     validator: (value) {
                       if (value != null &&
                           value.isNotEmpty == true &&
                           !isEgyptianPhone(value)) {
-                        return 'Please enter a valid Egyptian phone number';
+                        return 'Please enter a valid Egyptian phone number'.tr();
                       }
                       return null;
                     },
@@ -102,7 +103,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
                   const Gap(12),
                   CustomTextFormField(
                     controller: cubit.confirmPasswordController,
-                    hintText: 'Confirm Password',
+                    hintText: 'Confirm Password'.tr(),
                   ),
                 ],
               ),
@@ -111,7 +112,7 @@ class _EditProfileViewState extends State<_EditProfileView> {
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(20),
             child: MainButton(
-              text: 'Confirm password',
+              text: 'Confirm password'.tr(),
               onPressed: () {
                 cubit.updateProfile(File(path));
               },

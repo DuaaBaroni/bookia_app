@@ -7,6 +7,7 @@ import 'package:bookia_app/core/styles/text_styles.dart';
 import 'package:bookia_app/core/widgets/main_button.dart';
 import 'package:bookia_app/features/auth/presentation/view/login_screen.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/create_new_password.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -81,7 +82,7 @@ class _OTPVerficationState extends State<OTPVerfication> {
                 Text("OTP Verification", style: TextStyles.headline),
                 const Gap(8),
                 Text(
-                  "Enter the verification code we just sent on your email address.",
+                  "Enter the verification code we just sent on your email address.".tr(),
                   style: TextStyles.caption1.copyWith(
                     color: AppColors.darkGreyColor,
                   ),
@@ -129,7 +130,7 @@ class _OTPVerficationState extends State<OTPVerfication> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Didn’t received code?', style: TextStyles.caption1),
+                    Text('Didn’t received code?'.tr(), style: TextStyles.caption1),
                     const Gap(5),
                     GestureDetector(
                       onTap: () {

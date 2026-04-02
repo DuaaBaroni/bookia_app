@@ -19,6 +19,7 @@ import 'package:bookia_app/features/auth/presentation/cubit/auth_state.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/forget_password.dart';
 import 'package:bookia_app/features/auth/presentation/view/register_screen.dart';
 import 'package:bookia_app/features/auth/presentation/widgets/social_login_buttons.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -45,14 +46,14 @@ class LoginScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Don\'t have an account?', style: TextStyles.caption1),
+              Text('Don\'t have an account?'.tr(), style: TextStyles.caption1),
               Gap(5),
               GestureDetector(
                 onTap: () {
                   pushTo(context, RegisterScreen());
                 },
                 child: Text(
-                  'Register',
+                  'Register'.tr(),
                   style: TextStyles.caption1.copyWith(
                     color: AppColors.primaryColor,
                   ),
@@ -90,13 +91,13 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Welcome back! Glad to see you, Again!',
+                    'Welcome back! Glad to see you, Again!'.tr(),
                     style: TextStyles.headline,
                   ),
                   Gap(32),
                   CustomTextFormField(
                     controller: cubit.emailController,
-                    hintText: 'Enter your email',
+                    hintText: 'Enter your email'.tr(),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value!.isEmpty) {
