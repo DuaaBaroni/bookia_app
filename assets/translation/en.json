@@ -50,9 +50,38 @@
   "Back to Login": "Back to Login",
   "OR": "OR",
   "Continue with Google": "Continue with Google",
-  "Continue with Apple": "Continue with Apple"
-
-
-
-
+  "Continue with Apple": "Continue with Apple",
+  "My Orders": "My Orders",
+  "Failed to load orders": "Failed to load orders",
+  "Retry": "Retry",
+  "No orders yet": "No orders yet",
+  "Start shopping to see your orders here": "Start shopping to see your orders here",
+  "Place Order": "Place Order",
+  "Place Your Order": "Place Your Order",
+  "Please fill in your delivery details to complete your order.": "Please fill in your delivery details to complete your order.",
+  "Full Name": "Full Name",
+  "Please enter your full name": "Please enter your full name",
+  "Address": "Address",
+  "Please enter your address": "Please enter your address",
+  "Phone": "Phone",
+  "Loading governorates...": "Loading governorates...",
+  "Failed to load governorates": "Failed to load governorates",
+  "Please select a governorate": "Please select a governorate",
+  "Submit Order": "Submit Order",
+  "Search": "Search",
+  "Search Store": "Search Store",
+  "No Search": "No Search",
+  "Start typing to search for books": "Start typing to search for books",
+  "No books found": "No books found",
+  "Try searching with different keywords": "Try searching with different keywords",
+  "The Republic": "The Republic",
+  "Pride and Prejudice": "Pride and Prejudice",
+  "To Kill a Mockingbird": "To Kill a Mockingbird",
+  "1984": "1984",
+  "The Great Gatsby": "The Great Gatsby",
+  "MyCart": "My Cart",
+  "Best Sellers": "Best Sellers",
+  "Buy": "Buy",
+  "Select Governorate": "Select Governorate",
+  "Order Your Book Now!": "Order Your Book Now!"
 }
